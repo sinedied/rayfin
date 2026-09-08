@@ -14,11 +14,11 @@ Keep it short if the working directory already looks like an existing app: Step 
 
 ## Step 2: Check prerequisites
 
-Before running any `npx` command: `node --version` and `git --version`. Rayfin supports even-numbered Node majors only, so you need **v20.x, v22.x, or v24.x**: an odd or newer major like 21, 23, or 25 passes a naive "20 or later" check and then fails at install time. Install anything missing first:
+Before running any `npx` command: `node --version` and `git --version`. Rayfin supports even-numbered Node majors only, so you need **v20.x, v22.x, or v24.x**: an odd or newer major like 21, 23, or 25 passes a naive 20-or-later check and then fails at install time. Install anything missing first:
 
-- macOS: `brew install node git`
+- macOS: `brew install node@24 git`, then `brew link --overwrite --force node@24` to put it on your PATH. The unversioned `node` formula tracks Node Current, which is usually out of range.
 - Windows: `winget install -e --id OpenJS.NodeJS.LTS` then `winget install -e --id Git.Git`
-- Linux (Debian/Ubuntu): Node from [nodejs.org/en/download](https://nodejs.org/en/download), then `sudo apt install -y git`
+- Linux (Debian/Ubuntu): install Node 24 via [NodeSource](https://github.com/nodesource/distributions), then `sudo apt install -y git`
 
 Don't proceed until `node --version` reports v20.x, v22.x, or v24.x.
 
