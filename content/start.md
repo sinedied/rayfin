@@ -14,13 +14,13 @@ Keep it short if the working directory already looks like an existing app: Step 
 
 ## Step 2: Check prerequisites
 
-Before running any `npx` command: `node --version` and `git --version`. Rayfin supports even-numbered Node majors only, so you need **v20.x, v22.x, or v24.x**: an odd or newer major like 21, 23, or 25 passes a naive 20-or-later check and then fails at install time. Install anything missing first:
+Before running any `npx` command: `node --version` and `git --version`. Rayfin supports Node **LTS** releases, currently v20, v22 and v24. Odd-numbered major like 21, 23 or 25 are unsupported. Install anything missing first:
 
-- macOS: `brew install node@24 git`, then `brew link --overwrite --force node@24` to put it on your PATH. The unversioned `node` formula tracks Node Current, which is usually out of range.
+- macOS: install the LTS build from [nodejs.org/en/download](https://nodejs.org/en/download), which defaults to LTS. Homebrew's `node` formula tracks Current, so avoid it here. For git, use `brew install git` or the Xcode Command Line Tools.
 - Windows: `winget install -e --id OpenJS.NodeJS.LTS` then `winget install -e --id Git.Git`
-- Linux (Debian/Ubuntu): install Node 24 via [NodeSource](https://github.com/nodesource/distributions), then `sudo apt install -y git`
+- Linux (Debian/Ubuntu): `curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -` then `sudo apt install -y nodejs git`
 
-Don't proceed until `node --version` reports v20.x, v22.x, or v24.x.
+Don't proceed until `node --version` reports an LTS release, meaning v20.x, v22.x or v24.x today. When a newer LTS line ships, prefer it, and fall back to the most recent LTS the scaffolder accepts if it rejects the brand-new one.
 
 ## Step 3: Get into a project
 
